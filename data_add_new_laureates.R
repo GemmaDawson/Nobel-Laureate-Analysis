@@ -1,0 +1,121 @@
+library(tidyverse)
+nl2018 <- read_rds(path = "data/AllNobelLaureates2018.rds")
+tail(nl2018)
+colnames(nl2018)
+
+nl2018$`Full Name`[(nl2018$year == 2017 & nl2018$category == "peace")] <- "International Campaign to Abolish Nuclear Weapons (ICAN)"
+nl2018$`Organization Name`[(nl2018$year == 2017 & nl2018$category == "peace")] <- "International Campaign to Abolish Nuclear Weapons (ICAN)"
+
+
+
+nl2019 <- nl2019 %>% 
+  mutate(name = ifelse(test = `Laureate Type` == "Individual", yes = `Full Name`, no = `Organization Name`),
+         country = ifelse(test = `Laureate Type` == "Individual", yes = `Birth Country`, no = `Organization Country`)) %>% 
+  select(year, category, share, laureate_type = `Laureate Type`, 
+         name, country, sex = Sex, AfricaBorn = AfricanBorn)
+
+ 
+
+nl2019 <- nl2018 %>%
+  add_row(year = 2019,
+  category = "chemistry",
+  share = 1,
+  `Laureate Type` = "Individual",
+  `Full Name` = "",
+  `Birth Country` = "",
+  AfricanBorn = FALSE,
+  Sex = NA,
+  `Organization Name` = "",
+  `Organization Country` = "",
+  yearsplit = TRUE,
+  colourIndividual = "grey",
+  colourFemale = "grey",
+  colourSTEM = "grey",
+  colourFemaleSTEM = "grey",
+  colourAfricanBorn = "grey",
+  colourAfricanBornSTEM = "grey")%>%
+  add_row(year = 2019,
+          category = "literature",
+          share = 1,
+          `Laureate Type` = "Individual",
+          `Full Name` = "",
+          `Birth Country` = "",
+          AfricanBorn = FALSE,
+          Sex = NA,
+          `Organization Name` = "",
+          `Organization Country` = "",
+          yearsplit = TRUE,
+          colourIndividual = "grey",
+          colourFemale = "grey",
+          colourSTEM = "grey",
+          colourFemaleSTEM = "grey",
+          colourAfricanBorn = "grey",
+          colourAfricanBornSTEM = "grey")%>%
+  add_row(year = 2019,
+          category = "medicine",
+          share = 1,
+          `Laureate Type` = "Individual",
+          `Full Name` = "",
+          `Birth Country` = "",
+          AfricanBorn = FALSE,
+          Sex = NA,
+          `Organization Name` = "",
+          `Organization Country` = "",
+          yearsplit = TRUE,
+          colourIndividual = "grey",
+          colourFemale = "grey",
+          colourSTEM = "grey",
+          colourFemaleSTEM = "grey",
+          colourAfricanBorn = "grey",
+          colourAfricanBornSTEM = "grey")%>%
+  add_row(year = 2019,
+          category = "peace",
+          share = 1,
+          `Laureate Type` = "Individual",
+          `Full Name` = "",
+          `Birth Country` = "",
+          AfricanBorn = FALSE,
+          Sex = NA,
+          `Organization Name` = "",
+          `Organization Country` = "",
+          yearsplit = TRUE,
+          colourIndividual = "grey",
+          colourFemale = "grey",
+          colourSTEM = "grey",
+          colourFemaleSTEM = "grey",
+          colourAfricanBorn = "grey",
+          colourAfricanBornSTEM = "grey")%>%
+  add_row(year = 2019,
+          category = "physics",
+          share = 1,
+          `Laureate Type` = "Individual",
+          `Full Name` = "",
+          `Birth Country` = "",
+          AfricanBorn = FALSE,
+          Sex = NA,
+          `Organization Name` = "",
+          `Organization Country` = "",
+          yearsplit = TRUE,
+          colourIndividual = "grey",
+          colourFemale = "grey",
+          colourSTEM = "grey",
+          colourFemaleSTEM = "grey",
+          colourAfricanBorn = "grey",
+          colourAfricanBornSTEM = "grey")%>%
+  add_row(year = 2019,
+          category = "economics",
+          share = 1,
+          `Laureate Type` = "Individual",
+          `Full Name` = "",
+          `Birth Country` = "",
+          AfricanBorn = FALSE,
+          Sex = NA,
+          `Organization Name` = "",
+          `Organization Country` = "",
+          yearsplit = TRUE,
+          colourIndividual = "grey",
+          colourFemale = "grey",
+          colourSTEM = "grey",
+          colourFemaleSTEM = "grey",
+          colourAfricanBorn = "grey",
+          colourAfricanBornSTEM = "grey")
