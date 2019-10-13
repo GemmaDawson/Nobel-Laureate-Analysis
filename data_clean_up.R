@@ -19,3 +19,7 @@ prize17 <- prizes %>%
   mutate(`Laureate Type` = if_else(condition = is.na(surname), true = "Organization", false = "Individual"),
          `Full Name` = if_else(condition = `Laureate Type` == "Individual", true = str_c(firstname, surname, sep = " "), false = "NA"),
          `Organization Name` = if_else(condition = `Laureate Type` == "Organization", true = firstname, false = "NA"))
+
+
+
+nl2018
